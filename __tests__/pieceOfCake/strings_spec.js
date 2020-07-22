@@ -1,95 +1,63 @@
 describe('for strings', () => {
-  it('should get character at certain position', () => {
-    const string = 'Hello';
-    const characterWithinRange = string[1];
-    const characterOutOfRange = string[10];
+    it('should get character at certain position', () => {
+        const string = 'Hello';
+        const characterWithinRange = string[1];
+        const characterOutOfRange = string[10];
+        const expectedCharWithinRange = 'e';
+        const expectedCharOutOfRange = undefined;
 
-    // <--start
-    // Please write down the correct value. You should write the final result directly.
-    const expectedCharWithinRange = {};
-    const expectedCharOutOfRange = {};
-    // --end->
+        expect(characterWithinRange).toEqual(expectedCharWithinRange);
+        expect(characterOutOfRange).toEqual(expectedCharOutOfRange);
+    });
 
-    expect(characterWithinRange).toEqual(expectedCharWithinRange);
-    expect(characterOutOfRange).toEqual(expectedCharOutOfRange);
-  });
+    it('should use template string to create strings', () => {
+        const variable = 'World';
+        const template = `Hello ${variable}`;
+        const expected = 'Hello World';
 
-  it('should use template string to create strings', () => {
-    const variable = 'World';
-    const template = `Hello ${variable}`;
+        expect(template).toEqual(expected);
+    });
 
-    // <--start
-    // Please write down the correct value. You should write the final result directly.
-    const expected = undefined;
-    // --end->
+    it('should get substring', () => {
+        const string = 'coconuts';
+        const expected = 'nut';
 
-    expect(template).toEqual(expected);
-  });
+        expect(string.slice(4, 7)).toEqual(expected);
+    });
 
-  it('should get substring', () => {
-    const string = 'coconuts';
+    it('should get first index of a string', () => {
+        const string = 'coconuts';
+        const expected = 5;
 
-    // <--start
-    // Please write down the correct value. You should write the final result directly.
-    const expected = undefined;
-    // --end->
+        expect(string.indexOf('ut')).toEqual(expected);
+    });
 
-    expect(string.slice(4, 7)).toEqual(expected);
-  });
+    it('should be able to trim string', () => {
+        const string = ' coconuts \n';
+        const expected = 'coconuts';
 
-  it('should get first index of a string', () => {
-    const string = 'coconuts';
+        expect(string.trim()).toEqual(expected);
+    });
 
-    // <--start
-    // Please write down the correct value. You should write the final result directly.
-    const expected = undefined;
-    // --end->
+    it('should split string', () => {
+        const words = 'what a beautiful    day';
+        const splitted = words.split(' ');
+        const expected = ['what', 'a', 'beautiful', '', '', '', 'day'];
 
-    expect(string.indexOf('ut')).toEqual(expected);
-  });
+        expect(splitted).toEqual(expected);
+    });
 
-  it('should be able to trim string', () => {
-    const string = ' coconuts \n';
+    it('should join strings', () => {
+        const splitted = ['what', 'a', 'beautiful', 'day'];
+        const expected = 'what->a->beautiful->day';
 
-    // <--start
-    // Please write down the correct value. You should write the final result directly.
-    const expected = undefined;
-    // --end->
+        expect(splitted.join('->')).toEqual(expected);
+    });
 
-    expect(string.trim()).toEqual(expected);
-  });
+    it('should be aware to the codepoint larger than 16-bit', () => {
+        const emoji = '🐴👟';
+        const expected = 4;
 
-  it('should split string', () => {
-    const words = 'what a beautiful    day';
-    const splitted = words.split(' ');
-
-    // <--start
-    // Please write down the correct value. You should write the final result directly.
-    const expected = undefined;
-    // --end->
-
-    expect(splitted).toEqual(expected);
-  });
-
-  it('should join strings', () => {
-    const splitted = ['what', 'a', 'beautiful', 'day'];
-
-    // <--start
-    // Please write down the correct value. You should write the final result directly.
-    const expected = undefined;
-    // --end->
-
-    expect(splitted.join('->')).toEqual(expected);
-  });
-
-  it('should be aware to the codepoint larger than 16-bit', () => {
-    const emoji = '🐴👟';
-
-    // <--start
-    // Please write down the correct value. You should write the final result directly.
-    const expected = undefined;
-    // --end->
-
-    expect(emoji.length).toEqual(expected);
-  });
+        expect(emoji.length).toEqual(expected);
+    });
 });
